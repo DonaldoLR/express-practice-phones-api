@@ -2,16 +2,19 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
-
+const phoneRoutes = require('./routes/phones');
 // Start a server
 const app = express();
 
 // Middleware
 app.use(express.json());
-app.use((req, res) => {
+
+app.use((req, res, next) => {
 	console.log(req.path, req.method);
+	next();
 });
 
+app.use('/api/phones', phoneRoutes);
 // Connect to DB
 
 mongoose

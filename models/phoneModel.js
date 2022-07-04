@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const phoneModel = new Schema(
+const phoneSchema = new Schema(
 	{
 		name: {
 			type: String,
@@ -19,4 +19,4 @@ const phoneModel = new Schema(
 	{ timestamps: true }
 );
 
-module.exports = phoneModel;
+module.exports = mongoose.model('Phone', phoneSchema);

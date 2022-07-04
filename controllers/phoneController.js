@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // GET all phones
 const getPhones = async (req, res) => {
-	const phones = Phone.find({}).sort({ createdAt: -1 });
+	const phones = await Phone.find({}).sort({ createdAt: -1 });
 	res.status(200).json({ message: 'working' });
 };
 // GET a single phone
